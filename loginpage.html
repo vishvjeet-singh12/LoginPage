@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body{
+            background-color: rgb(54, 56, 57);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 200px;
+        }
+        .form-container{
+            background-color: white;
+            padding: 50px;
+            text-align: center;
+            justify-content: center;
+        }
+        h1{
+           margin:0px 0px 10px 0px;
+        }
+        input{
+            width:200px;
+            margin: 10px 0px;
+            padding: 10px;
+        }
+        button{
+            width: 222px;
+            background-color: rgb(62, 200, 247);
+            border: none;
+            padding: 5px;
+            color: white;
+            font-size: 15px;
+        }
+        .error{
+            color: red;
+            margin: 0px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+<h1>Login</h1>
+<form action="" onsubmit="return validateForm()">
+     <input type="text" placeholder="User Name" id="username"><br>
+        <p id="userError" class="error"></p>
+     <input type="password" placeholder="Password" id="password"><br>
+     <p id="passError" class="error"></p>
+     <button type="submit" >Submit</button>
+</form>
+    </div>
+    <script>
+        let username=document.getElementById("username");
+        let password=document.getElementById("password");
+        let form=1;
+        
+        function validateForm(){
+            if(username.value== ""){
+                document.getElementById("userError").innerHTML="User name is Empty";
+                form=0;
+            }
+            else if(username.value.length < 4){
+                document.getElementById("userError").innerHTML="User name require more than 6 char";
+                form=0;
+            }else{
+                document.getElementById("userError").innerHTML="";
+                form=1;
+            }
+            
+            if(password.value == ""){
+                document.getElementById("passError").innerHTML="Password is Empty";
+                form=0;
+            }else{
+                document.getElementById("passError").innerHTML="";
+                form=1;
+            }
+            
+            if(form){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
